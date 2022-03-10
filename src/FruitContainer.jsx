@@ -15,7 +15,7 @@ class FruitContainer extends Component {
     handleFilterChange = (e) => {
         e.preventDefault();
         const filteredFruitsList = defaultFruits.filter(fruit => {
-            return fruit.includes(e.target.value);
+            return fruit.toLowerCase().includes(e.target.value.toLowerCase());
         })
         this.setState({
             inputFilterValue: e.target.value,
