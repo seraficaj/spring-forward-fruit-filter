@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Spring Forward React.js "Lifting State Up" Lesson
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
