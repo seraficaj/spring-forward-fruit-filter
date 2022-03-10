@@ -9,18 +9,23 @@ class FruitContainer extends Component {
     state = {
         fruitsToDisplay: defaultFruits, // fruits to show in List
         inputFilterValue: "", // input data from Input
+        fruitsFilteredOut: [],
     };
 
     // this method is drilled down to Input
     handleFilterChange = (e) => {
         e.preventDefault();
-        const filteredFruitsList = defaultFruits.filter(fruit => {
+        const filteredFruitsList = defaultFruits.filter((fruit) => {
             return fruit.toLowerCase().includes(e.target.value.toLowerCase());
-        })
+        });
+        const removedFruitsList = defaultFruits.filter((fruit) => {
+            return !fruit.toLowerCase().includes(e.target.value.toLowerCase());
+        });
         this.setState({
             inputFilterValue: e.target.value,
-            fruitsToDisplay: filteredFruitsList
-        })
+            fruitsToDisplay: filteredFruitsList,
+            fruitsFilteredOut: removedFruitsList,
+        });
     };
 
     render() {
@@ -30,7 +35,10 @@ class FruitContainer extends Component {
                     handleFilterChange={this.handleFilterChange}
                     value={this.state.inputFilterValue}
                 />
-                <List fruits={this.state.fruitsToDisplay} />
+                <List
+                    fruits={this.state.fruitsToDisplay}
+                    removed={this.state.fruitsFilteredOut}
+                />
             </>
         );
     }
