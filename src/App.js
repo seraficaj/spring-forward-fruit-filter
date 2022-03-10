@@ -1,12 +1,8 @@
-import './App.css';
+import React, { Component } from 'react';
 import FruitContainer from './FruitContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <FruitContainer />
-    </div>
-  );
-}
-
-export default App;
+export default class App extends Component {
+  render() {
+    return(<FruitContainer />)
+  }
+};
